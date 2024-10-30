@@ -1,0 +1,16 @@
+{
+  "name": "kts-project",
+  "version": "1.0.0",
+  "description": "Project for 3-5 KTS homeworks",
+  "main": "index.js",
+  "repository": "https://github.com/Andrest31/KTS_project.git",
+  "author": "Andrest31",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "react": "^18.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.13.0"
+  }
+}
