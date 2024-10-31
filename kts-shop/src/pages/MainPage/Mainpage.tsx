@@ -6,6 +6,7 @@ import MultiDropdown from '../../components/MultiDropdown';
 import Loader from '../../components/Loader';
 import Text from '../../components/Text';
 import Button from '../../components/Button';
+import ArrowDownIcon from '../../components/icons/ArrowDownIcon';
 import '../../App.css';
 
 interface Product {
@@ -100,6 +101,17 @@ const MainPage: React.FC = () => {
         </section>
       </div>
       {/* Пагинация будет добавлена позже */}
+      <div className="main-page__pagination">
+        <ArrowDownIcon className="left"></ArrowDownIcon>
+        <div className="main-page__pagination_buttons">
+            <Button className="active_page">1</Button>
+            <Button className="active_page">2</Button>
+            <Button className="active_page">3</Button>
+
+        </div>
+        <ArrowDownIcon className="right"></ArrowDownIcon>
+
+      </div>
     </div>
   );
 };

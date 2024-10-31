@@ -6,8 +6,6 @@
     height: auto; /* Устанавливаем минимальную высоту */
     padding: var(--spacing-small) var(--spacing-large);
     gap: var(--space-xxs);
-    min-height: 52px;
-    min-width: 137px;
     border-radius: 0px;
  
     color: white;
