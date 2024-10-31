@@ -15,6 +15,24 @@
   justify-content: center;
   margin: auto;
   margin-bottom: 48px;
+  padding: 0 100px;
+}
+
+.main-page__search{
+  display: flex;
+  margin-bottom: 20px;
+  padding: 0 100px;
+
+}
+.main-page__search input {
+  flex-shrink: 1;
+  padding-right: 1910px;
+  margin-right: 24px;
+}
+
+.main-page__search button {
+  white-space: nowrap; /* Предотвращает перенос текста кнопки на новую строку */
+  right: 0px;
 }
 
 .main-page__controls.h1{

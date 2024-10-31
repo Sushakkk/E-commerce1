@@ -5,6 +5,7 @@ import Input from '../../components/Input';
 import MultiDropdown from '../../components/MultiDropdown';
 import Loader from '../../components/Loader';
 import Text from '../../components/Text';
+import Button from '../../components/Button';
 import '../../App.css';
 
 interface Product {
@@ -56,12 +57,19 @@ const MainPage: React.FC = () => {
                 We display products based on the latest products we have. If you want to see our old products please enter the name of the item.
             </Text>
         </div>
+
         {/* Компонент поиска */}
-        <Input
-          value={searchValue}
-          onChange={setSearchValue}
-          placeholder="Search product"
-        />
+        <div className="main-page__search">
+            <Input
+            value={searchValue}
+            onChange={setSearchValue}
+            placeholder="Search product"
+            />
+            <Button>
+                Find now
+            </Button>
+        </div>
+
         {/* Компонент фильтра */}
         <MultiDropdown
           options={[{ key: '1', value: 'Furniture' }, { key: '2', value: 'Electronics' }]}
