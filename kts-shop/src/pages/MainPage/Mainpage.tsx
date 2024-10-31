@@ -4,6 +4,7 @@ import Card from '../../components/Card';
 import Input from '../../components/Input';
 import MultiDropdown from '../../components/MultiDropdown';
 import Loader from '../../components/Loader';
+import Text from '../../components/Text';
 import '../../App.css';
 
 interface Product {
@@ -43,11 +44,18 @@ const MainPage: React.FC = () => {
   return (
     <div className="main-page">
       <header className="main-page__header">
-        <h1>Products</h1>
-        <p>We display products based on the latest products we have. If you want to see our old products please enter the name of the item</p>
+        <h1>HELLO55</h1>
       </header>
 
-      <div className="main-page__controls">
+      <div className="main-page__top">
+        <div className="main-page__controls">
+            <Text tag="h1" view="title" className="page-title" weight="bold">
+                Products
+            </Text>
+            <Text tag="p" view="p-20" className="page-description" color="secondary">
+                We display products based on the latest products we have. If you want to see our old products please enter the name of the item.
+            </Text>
+        </div>
         {/* Компонент поиска */}
         <Input
           value={searchValue}

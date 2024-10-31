@@ -56,11 +56,11 @@
   }
   
   .text-color-primary {
-    color: var(--primary);
+    color: var(--text-primary-color);
   }
   
   .text-color-secondary {
-    color: var(--secondary);
+    color: var(--text-secondary-color);
   }
   
   .text-color-accent {
