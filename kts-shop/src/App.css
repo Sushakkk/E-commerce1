@@ -11,7 +11,7 @@
 .main-page__controls {
   text-align: center;
   width: 640px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   justify-content: center;
   margin: auto;
   margin-bottom: 48px;
@@ -35,12 +35,23 @@
   right: 0px;
 }
 
-.main-page__controls.h1{
-  text-align: center;
-  font-size: 30px;
+
+.main-page__filter{
+  width: 300px;
+  padding-left: 100px;
+  margin-bottom: 48px;
+}
+.main-page__catalog{
+  margin: 0 100px;
 }
 
+.main-page__catalog h1{
+  margin-bottom: 32px;
+}
+
+
 .product-grid {
+  padding: 0 100px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;

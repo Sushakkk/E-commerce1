@@ -71,26 +71,34 @@ const MainPage: React.FC = () => {
         </div>
 
         {/* Компонент фильтра */}
-        <MultiDropdown
-          options={[{ key: '1', value: 'Furniture' }, { key: '2', value: 'Electronics' }]}
-          value={[]}
-          onChange={() => {}}
-          getTitle={() => 'Filter'}
-        />
+        <div className="main-page__filter">
+            <MultiDropdown
+            options={[{ key: '1', value: 'Furniture' }, { key: '2', value: 'Electronics' }]}
+            value={[]}
+            onChange={() => {}}
+            getTitle={() => 'Filter'}
+            />
+        </div>
       </div>
+    
+      <div className="main-page__catalog">
+        <Text tag="h1" view="title" className="page-title" weight="bold">
+            Total Product
+        </Text>
 
-      <section className="product-grid">
-        {products.map(product => (
-          <Card
-            key={product.id}
-            image={product.images[0]}
-            title={product.title}
-            subtitle={`$${product.price}`}
-            captionSlot={product.category.name}
-            actionSlot={<button className="add-to-cart-button">Add to Cart</button>}
-          />
-        ))}
-      </section>
+        <section className="product-grid">
+            {products.map(product => (
+            <Card
+                key={product.id}
+                image={product.images[0]}
+                title={product.title}
+                subtitle={`$${product.price}`}
+                captionSlot={product.category.name}
+                actionSlot={<Button className="add-to-cart-button">Add to Cart</Button>}
+            />
+            ))}
+        </section>
+      </div>
       {/* Пагинация будет добавлена позже */}
     </div>
   );
