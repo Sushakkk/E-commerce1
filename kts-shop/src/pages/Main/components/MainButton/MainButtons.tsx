@@ -14,7 +14,6 @@ const TestComponent = () => {
     );
 };
 
-// Неправильный порядок импорта для проверки правила import/order
-import { useEffect } from 'react';
+
 
 export default TestComponent;
