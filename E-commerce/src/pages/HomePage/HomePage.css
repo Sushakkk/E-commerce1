@@ -13,7 +13,13 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    align-items: center;
+    gap: 48px;
 
+}
+
+.products__body{
+    width: 100%;
 }
 
 
@@ -24,6 +30,7 @@
     flex-direction: column;
     gap: var(--space-xl);
     align-items: center;
+
 
 }
 .products__description{
@@ -141,10 +148,11 @@
 }
 
 .products__controls{
+    width: 100%;
     gap: var(--space-xl);
     display: flex;
     flex-direction: column;
-    padding: 48px 0px;
+    padding-bottom: 48px;
    
 }
 .products__search {
@@ -225,17 +233,14 @@
 }
 
 
-.products__text{
-    color:var(--text);
-    margin: 20px 0px 10px 0px;
+
+.products__pagination{
+
+    width: 296px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
 }
-
-/* .products__search option {
-    color: black;
-} */
-
-
-
 
 .search-container {
     height: 40px;

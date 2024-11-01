@@ -8,10 +8,12 @@ import MultiDropdown from 'components/MultiDropdown';
 import Card from 'components/Card';
 import ArrowDownIcon from 'components/icons/ArrowDownIcon';
 import './HomePage.css';
+import PaginationIcon from 'components/PaginationIcon/PaginationIcon';
 
 interface Product {
   id: number;
   title: string;
+  description: string;
   price: number;
   images: string[];
   category: { name: string };
@@ -29,6 +31,7 @@ const MainPage: React.FC = () => {
       try {
         const response = await axios.get('https://api.escuelajs.co/api/v1/products');
         setProducts(response.data.slice(0, 9)); 
+        console.log(response.data)
       } catch (error) {
         setError('Не удалось загрузить данные');
       } finally {
@@ -56,48 +59,48 @@ const MainPage: React.FC = () => {
               </Text>
             </div>
           </div>
-
-          
-            <div className="products__controls">
-              <div className="products__search">
-                <div className="products__search-column--left">
-                  <Input
-                    value={searchValue}
-                    onChange={setSearchValue}
-                    placeholder="Search product"
-                  />
-                </div>
-                <Button className='products__search-column--right'>Find now</Button>
-              </div>
-
-              <div className="products__filter">
-                <MultiDropdown
-                  options={[{ key: '1', value: 'Furniture' }, { key: '2', value: 'Electronics' }]}
-                  value={[]}
-                  onChange={() => {}}
-                  getTitle={() => 'Filter'}
+  
+          <div className="products__controls">
+            <div className="products__search">
+              <div className="products__search-column--left">
+                <Input
+                  value={searchValue}
+                  onChange={setSearchValue}
+                  placeholder="Search product"
                 />
               </div>
+              <Button className='products__search-column--right'>Find now</Button>
+            </div>
+  
+            <div className="products__filter">
+              <MultiDropdown
+                options={[{ key: '1', value: 'Furniture' }, { key: '2', value: 'Electronics' }]}
+                value={[]}
+                onChange={() => {}}
+                getTitle={() => 'Filter'}
+              />
             </div>
           </div>
-
+  
+          <div className='products__body'>
             <div className='products__subtitle'>
-              <Text  view="p-32" className="page-title" weight="bold">
+              <Text view="p-32" className="page-title" weight="bold">
                 Total Products
               </Text>
-              <Text  view="p-20" color='accent' weight="bold">
+              <Text view="p-20" color='accent' weight="bold">
                 184 
               </Text>
             </div>
-
+    
             <section className="products__cards">
               {products.map(product => (
                 <div className="products__column" key={product.id}>
                   <Card
                     image={product.images[0]}
                     title={product.title}
-                    subtitle={`$${product.price}`}
+                    subtitle={product.description}
                     captionSlot={product.category.name}
+                    contentSlot={`$${product.price}`}
                     actionSlot={<Button className="add-to-cart-button">Add to Cart</Button>}
                     className="products__card" // Передаем класс для стилизации карточки
                   />
@@ -105,21 +108,22 @@ const MainPage: React.FC = () => {
               ))}
             </section>
           </div>
-        
-
-        {/* Пагинация будет добавлена позже */}
-        <div className="products__pagination">
-          <ArrowDownIcon className="products__pagination-left" />
-          <div className="products__pagination-buttons">
-            <Button className="active-page">1</Button>
-            <Button className="active-page">2</Button>
-            <Button className="active-page">3</Button>
+  
+          <div className="products__pagination">
+            <PaginationIcon/>
+            <div className="products__pagination-buttons">
+              <Button className="active-page">1</Button>
+              <Button className="active-page">2</Button>
+              <Button className="active-page">3</Button>
+            </div>
+            <PaginationIcon direction='right'/>
           </div>
-          <ArrowDownIcon className="products__pagination-right" />
         </div>
-
+      </div>
     </main>
   );
+  
+  
 };
 
 export default MainPage;
