@@ -1,0 +1,13 @@
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+._container {
+  max-width: 1440px;
+  padding: 0px 100px;
+  margin: 0px auto;
+  box-sizing: content-box;
+}
