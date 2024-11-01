@@ -11,7 +11,7 @@
 .text-title {
   font-family: 'Roboto', sans-serif;
     font-size: 44px;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 48px;
   }
   
@@ -27,7 +27,12 @@
  
     
   }
-  
+  .text-p-32 {
+    font-size: 32px;
+    line-height: 48px;
+ 
+    
+  }
   .text-p-18 {
     font-size: 18px;
     line-height: 22px;

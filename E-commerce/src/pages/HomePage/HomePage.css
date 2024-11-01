@@ -5,25 +5,64 @@
     background-color: var(--font);
   
 }
-.page__products {
-	display: flex;
+
+
+
+.products-content{
+    padding-top: 100px;
+    display: flex;
     align-items: center;
-    justify-content: center;
+    flex-direction: column;
+
+}
+
+
+.products__header{
+    width: 653px;
+    height: 128px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    align-items: center;
+
+}
+.products__description{
+    text-align: center;
 }
 
 .products__content {
+    padding-top: 48px;
     display: flex;
     flex-direction: column;
-    gap:40px;
+    gap:48px;
     width: 100%;   
     
 }
+.products__subtitle{
+    display: flex;
+    width: 266px;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: var(--space-xl);
+    text-align: left;
+}
+
+
 
 .products__cards {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); 
-    gap: 80px;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); /* Устанавливает фиксированную ширину для карточек */
+    gap: 30px 80px; 
+    justify-content: center; 
 }
+
+.products__column {
+    display: flex;
+    justify-content: center;
+}
+
+
 
 
 
@@ -101,12 +140,29 @@
 
 }
 
-
+.products__controls{
+    gap: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    padding: 48px 0px;
+   
+}
 .products__search {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-   
+    gap: var(--space-xl); 
+}
+
+.products__search-column--left {
+    width: 1079px; 
+}
+
+.products__search-column--right {
+    flex: 1; 
+}
+
+
+.products__filter{
+    width: 300px;
 
 }
 
