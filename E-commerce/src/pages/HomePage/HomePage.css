@@ -2,7 +2,7 @@
     margin-top: 90px;
 	min-height: 100vh;
 	height: auto;
-    background-color: var(--font);
+    
   
 }
 
@@ -15,6 +15,8 @@
     flex-direction: column;
     align-items: center;
     gap: 48px;
+    padding-bottom: 48px;
+    background-color: var(--font);
 
 }
 
@@ -234,46 +236,28 @@
 
 
 
-.products__pagination{
-
+.products__pagination {
     width: 296px;
     justify-content: space-between;
     display: flex;
     align-items: center;
-}
-
-.search-container {
-    height: 40px;
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
-    max-width: 300px; /* Настройте под нужный размер */
-    background-color: #fff; /* Добавляем белый фон для контейнера */
   }
   
-  .search-input {
+  .pagination-button {
+    background: none;
     border: none;
-    padding: 10px;
-    flex: 1;
-    font-size: 16px;
-    outline: none;
-    background-color: transparent; /* Прозрачный фон */
-  }
-  
-  .search-button {
-    background-color: var(--main_color);
-    border: none;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 8px;
     cursor: pointer;
+    color: #333;
   }
   
-  .search-button img {
-   
+  .pagination-button.active-page {
+    background-color: #407d7d;
+    width: 38px;
+    height: 42px;
+    color: #fff;
   }
+  
+
+
   
