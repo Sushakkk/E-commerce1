@@ -58,7 +58,7 @@ const HomePage: React.FC = () => {
   if (error) return <div className="error-message">{error}</div>;
 
   return (
-    <main id="main" className="page">
+    <main id="main" className="page ">
       <div className="page__main-block _container">
         <div className="products-content">
           <div className="products__header">

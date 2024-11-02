@@ -1,9 +1,12 @@
 .page {
-    margin-top: 90px;
+
 	min-height: 100vh;
 	height: auto;
-    
-  
+    width: 1440px;
+    margin: 90px auto 0px auto;
+    background-color: var(--font);
+
+
 }
 
 
@@ -16,7 +19,6 @@
     align-items: center;
     gap: 48px;
     padding-bottom: 48px;
-    background-color: var(--font);
 
 }
 

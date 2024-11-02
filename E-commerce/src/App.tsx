@@ -12,15 +12,13 @@ import './styles/variables.css'
 function App() {
   return (
     <div className="wrapper">
-      <div className="wide-container">
       <Header />
   
-  <Routes>
-    <Route path="/" element={<HomePage/>} />
-    <Route path="/product/:id" element={<ProductPage/>} />
-  </Routes>
+        <Routes>
+          <Route path="/" element={<HomePage/>} />
+          <Route path="/product/:id" element={<ProductPage/>} />
+        </Routes>
 
-      </div>
     </div>
   );
 }
