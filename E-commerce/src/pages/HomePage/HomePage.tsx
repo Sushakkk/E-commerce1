@@ -11,7 +11,7 @@ import './HomePage.css';
 import PaginationIcon from 'components/PaginationIcon/PaginationIcon';
 import { useNavigate } from 'react-router-dom';
 
-interface Product {
+export interface ProductI {
   id: number;
   title: string;
   description: string;
@@ -28,11 +28,15 @@ const HomePage: React.FC = () => {
    const navigate = useNavigate();
    
    // Обработка клика по карточке для перехода на страницу с деталями продукта
-  const handleCardClick = (productId: number) => {
-    navigate(`/product/${productId}`); // Замените путь на нужный URL
-  };
+  // Обработка клика по карточке для перехода на страницу с деталями продукта
+const handleCardClick = (product: ProductI) => {
+  navigate(`/product/${product.id}`, {
+    state: { product, products }, // Передаем продукт и список всех продуктов
+  });
+};
 
-  const [products, setProducts] = useState<Product[]>([]);
+
+  const [products, setProducts] = useState<ProductI[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [searchValue, setSearchValue] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
@@ -74,6 +78,7 @@ const HomePage: React.FC = () => {
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
+    
   };
 
   if (loading) return <Loader />;
@@ -130,7 +135,7 @@ const HomePage: React.FC = () => {
               </Text>
             </div>
     
-            <section className="products__cards">
+            <section className="products__cards _cards">
               {products.map(product => (
                 <div className="products__column" key={product.id}>
                   <Card
@@ -139,9 +144,9 @@ const HomePage: React.FC = () => {
                     subtitle={product.description}
                     captionSlot={product.category.name}
                     contentSlot={`$${product.price}`}
-                    actionSlot={<Button className="add-to-cart-button">Add to Cart</Button>}
+                    actionSlot={<Button >Add to Cart</Button>}
                     className="products__card"
-                    onClick={() => handleCardClick(product.id)} // Передаем функцию навигации
+                    onClick={() => handleCardClick(product)} // Передаем функцию навигации
                   />
                 </div>
               ))}
@@ -149,11 +154,13 @@ const HomePage: React.FC = () => {
           </div>
           <div className="products__pagination">
             <div onClick={() => handlePageChange(currentPage > 1 ? currentPage - 1 : 1)}>
-              <PaginationIcon />
+              <PaginationIcon color='secondary' />
             </div>
             <div className="products__pagination-buttons">
               {[1, 2, 3, "...", totalPages].map((page, index) => (
                 <Button
+                width={38}
+                height={42}
                   key={index}
                   className={`pagination-button ${page === currentPage ? 'active-page' : ''}`}
                   onClick={() => typeof page === 'number' && handlePageChange(page)}

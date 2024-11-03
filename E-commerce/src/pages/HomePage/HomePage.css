@@ -6,8 +6,6 @@
     margin: 90px auto 0px auto; */
     padding-top: 90px;
     background-color: var(--font);
-
-
 }
 
 
@@ -62,13 +60,19 @@
 
 
 .products__cards {
+
+    padding-bottom: 30px;
+}
+
+
+._cards{
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, minmax(360px, 1fr)); /* Устанавливает фиксированную ширину для карточек */
     grid-template-rows: repeat(auto-fill, 1fr);
     gap: 30px 80px; 
     justify-content: center; 
-    padding-bottom: 30px;
+
 }
 
 .products__column {
@@ -159,7 +163,7 @@
     gap: var(--space-xl);
     display: flex;
     flex-direction: column;
-    padding-bottom: 48px;
+
    
 }
 .products__search {
@@ -187,7 +191,6 @@
 
 .products__pagination {
     width: 296px;
-    height: 42px;
     justify-content: space-between;
     display: flex;
     align-items: center;
