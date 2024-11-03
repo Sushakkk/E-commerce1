@@ -29,7 +29,7 @@
 	display: flex;
 	min-height: 90px;
 	align-items: center;
-	justify-content: space-between; /* Центрирует содержимое */
+	justify-content: space-between; 
 	
 	
 }
@@ -80,20 +80,26 @@
   
   .menu__item.active {
 	font-weight: bold;
-	color: #407d7d; /* Цвет активного пункта */
+	color: var(--primary-color);
   }
   
   .menu__item.active::after {
 	content: '';
 	position: absolute;
-	bottom: -34px; /* Смещение подчеркивания под хедером */
+	bottom: -34px; 
 	left: 0;
 	width: 100%;
 	height: 2px;
-	background-color: #407d7d; /* Цвет подчеркивания */
+	background-color: var(--primary-color);
 	transform: translateY(100%);
   }
   
+  
+  .products__cards a {
+	color: inherit;
+	text-decoration: none;
+	cursor: pointer;
+  }
   
 
 

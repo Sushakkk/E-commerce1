@@ -9,6 +9,7 @@ import Card from 'components/Card';
 import ArrowDownIcon from 'components/icons/ArrowDownIcon';
 import './HomePage.css';
 import PaginationIcon from 'components/PaginationIcon/PaginationIcon';
+import { useNavigate } from 'react-router-dom';
 
 interface Product {
   id: number;
@@ -20,12 +21,25 @@ interface Product {
 }
 
 const HomePage: React.FC = () => {
+
+
+  
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [searchValue, setSearchValue] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const totalPages = 10; // Общее количество страниц (можно заменить на динамическое значение)
+
+   // Навигация
+   const navigate = useNavigate();
+
+
+   
+   // Обработка клика по карточке для перехода на страницу с деталями продукта
+  const handleCardClick = (productId: number) => {
+    navigate(`/product/${productId}`); // Замените путь на нужный URL
+  };
 
   // Получение данных из API
   const fetchProducts = async (page: number) => {
@@ -114,7 +128,8 @@ const HomePage: React.FC = () => {
                     captionSlot={product.category.name}
                     contentSlot={`$${product.price}`}
                     actionSlot={<Button className="add-to-cart-button">Add to Cart</Button>}
-                    className="products__card" // Передаем класс для стилизации карточки
+                    className="products__card"
+                    onClick={() => handleCardClick(product.id)} // Передаем функцию навигации
                   />
                 </div>
               ))}

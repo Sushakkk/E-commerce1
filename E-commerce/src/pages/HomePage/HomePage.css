@@ -2,8 +2,9 @@
 
 	min-height: 100vh;
 	height: auto;
-    width: 1440px;
-    margin: 90px auto 0px auto;
+    /* width: 1440px;
+    margin: 90px auto 0px auto; */
+    padding-top: 90px;
     background-color: var(--font);
 
 
