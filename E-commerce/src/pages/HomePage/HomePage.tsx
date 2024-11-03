@@ -23,23 +23,23 @@ interface Product {
 const HomePage: React.FC = () => {
 
 
-  
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [searchValue, setSearchValue] = useState<string>('');
-  const [error, setError] = useState<string | null>(null);
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const totalPages = 10; // Общее количество страниц (можно заменить на динамическое значение)
 
    // Навигация
    const navigate = useNavigate();
-
-
    
    // Обработка клика по карточке для перехода на страницу с деталями продукта
   const handleCardClick = (productId: number) => {
     navigate(`/product/${productId}`); // Замените путь на нужный URL
   };
+
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [searchValue, setSearchValue] = useState<string>('');
+  const [error, setError] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalProducts, setTotalProducts] = useState<number>(0); // новое состояние
+  const productsPerPage = 9;
+  const totalPages = Math.ceil(totalProducts / productsPerPage);
 
   // Получение данных из API
   const fetchProducts = async (page: number) => {
@@ -47,12 +47,20 @@ const HomePage: React.FC = () => {
     try {
       const response = await axios.get('https://api.escuelajs.co/api/v1/products', {
         params: {
-          offset: (page - 1) * 9,
-          limit: 9,
+          offset: (page - 1) * productsPerPage,
+          limit: productsPerPage,
         },
       });
-      console.log('Products fetched from server:', response.data); // выводим данные в консоль
       setProducts(response.data);
+      
+      // Запрос для получения общего количества продуктов
+      const totalResponse = await axios.get('https://api.escuelajs.co/api/v1/products', {
+        params: {
+          offset: 0,
+          limit: 0,
+        },
+      });
+      setTotalProducts(totalResponse.data.length); // Устанавливаем общее количество
     } catch (error) {
       setError('Не удалось загрузить данные');
     } finally {
@@ -70,6 +78,10 @@ const HomePage: React.FC = () => {
 
   if (loading) return <Loader />;
   if (error) return <div className="error-message">{error}</div>;
+
+ 
+
+ 
 
   return (
     <main id="main" className="page ">
@@ -114,7 +126,7 @@ const HomePage: React.FC = () => {
                 Total Products
               </Text>
               <Text view="p-20" color='accent' weight="bold">
-                184 
+              {totalProducts} 
               </Text>
             </div>
     
@@ -135,26 +147,25 @@ const HomePage: React.FC = () => {
               ))}
             </section>
           </div>
-  
           <div className="products__pagination">
-          <div onClick={() => handlePageChange(currentPage > 1 ? currentPage - 1 : 1)}>
-            <PaginationIcon />
+            <div onClick={() => handlePageChange(currentPage > 1 ? currentPage - 1 : 1)}>
+              <PaginationIcon />
+            </div>
+            <div className="products__pagination-buttons">
+              {[1, 2, 3, "...", totalPages].map((page, index) => (
+                <Button
+                  key={index}
+                  className={`pagination-button ${page === currentPage ? 'active-page' : ''}`}
+                  onClick={() => typeof page === 'number' && handlePageChange(page)}
+                >
+                  {page}
+                </Button>
+              ))}
+            </div>
+            <div onClick={() => handlePageChange(currentPage < totalPages ? currentPage + 1 : totalPages)}>
+              <PaginationIcon direction="right" />
+            </div>
           </div>
-          <div className="products__pagination-buttons">
-            {[1, 2, 3, "...", totalPages].map((page, index) => (
-              <Button
-                key={index}
-                className={`pagination-button ${page === currentPage ? 'active-page' : ''}`}
-                onClick={() => typeof page === 'number' && handlePageChange(page)}
-              >
-                {page}
-              </Button>
-            ))}
-          </div>
-          <div onClick={() => handlePageChange(currentPage < totalPages ? currentPage + 1 : totalPages)}>
-            <PaginationIcon direction="right" />
-          </div>
-        </div>
         </div>
       </div>
     </main>
