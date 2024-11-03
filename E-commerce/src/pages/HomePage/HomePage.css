@@ -65,9 +65,10 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, minmax(360px, 1fr)); /* Устанавливает фиксированную ширину для карточек */
-    grid-template-rows: repeat(auto-fill, 618px);
+    grid-template-rows: repeat(auto-fill, 1fr);
     gap: 30px 80px; 
     justify-content: center; 
+    padding-bottom: 30px;
 }
 
 .products__column {

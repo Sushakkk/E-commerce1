@@ -2,9 +2,9 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
-    /* gap: var(--space-xxl); */
+    gap: var(--space-xxl);
     background-color: var(--card);
+    padding-bottom:var(--space-xxl) ; 
 
 }
 
@@ -40,13 +40,12 @@
 
 
 .card-content{
-
     
     display: flex;
     flex-direction: column;
    
-    padding: var(--space-xxl) var(--space-xs);
-    /* gap: var(--spacing-xlarge); */
+    padding: 0px var(--space-xs);
+    gap: var(--spacing-xlarge);
     flex-grow: 1;
     
     opacity: 0px;
@@ -81,6 +80,3 @@
     cursor: pointer;
 }
 
-.card-button-container{
-    width: 100%;
-}
