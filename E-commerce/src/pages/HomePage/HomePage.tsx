@@ -10,6 +10,7 @@ import ArrowDownIcon from 'components/icons/ArrowDownIcon';
 import './HomePage.css';
 import PaginationIcon from 'components/PaginationIcon/PaginationIcon';
 import { useNavigate } from 'react-router-dom';
+import { handleCardClick } from 'utils/navigationUtils';
 
 export interface ProductI {
   id: number;
@@ -24,16 +25,9 @@ const HomePage: React.FC = () => {
 
 
 
-   // Навигация
+
    const navigate = useNavigate();
-   
-   // Обработка клика по карточке для перехода на страницу с деталями продукта
-  // Обработка клика по карточке для перехода на страницу с деталями продукта
-const handleCardClick = (product: ProductI) => {
-  navigate(`/product/${product.id}`, {
-    state: { product, products }, // Передаем продукт и список всех продуктов
-  });
-};
+
 
 
   const [products, setProducts] = useState<ProductI[]>([]);
@@ -146,7 +140,7 @@ const handleCardClick = (product: ProductI) => {
                     contentSlot={`$${product.price}`}
                     actionSlot={<Button >Add to Cart</Button>}
                     className="products__card"
-                    onClick={() => handleCardClick(product)} // Передаем функцию навигации
+                    onClick={() => handleCardClick(product, products, navigate)} 
                   />
                 </div>
               ))}

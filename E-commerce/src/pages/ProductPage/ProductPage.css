@@ -97,7 +97,7 @@ height: 1346px;
   .ProductContentWrapper {
     padding-top: var(--space-xxl);
     display: flex;
-    gap: 30px; /* Расстояние между изображением и контентом */
+    gap: var(--space-xxl);
     justify-content: center;
     width: 1301px;
     

@@ -7,11 +7,16 @@ import '../HomePage/HomePage.css';
 import './ProductPage.css';
 import { ProductI } from 'pages/HomePage/HomePage';
 import Button from 'components/Button';
+import { handleCardClick } from 'utils/navigationUtils';
+
 
 const ProductPage = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { product, products } = location.state || {};
+
+   
+      
 
 
     // Получаем три первых продукта, исключая выбранный продукт
@@ -23,7 +28,7 @@ const ProductPage = () => {
         <main id="main" className="page">
             <div className="page__product _container">
                 <div className="product__button-container">
-                    <div className="product__buttton_back" onClick={() => navigate(-1)}>
+                    <div className="product__buttton_back" onClick={() => navigate('/')}>
                         <PaginationIcon />
                         <Text view="p-20">Назад</Text>
                     </div>
@@ -64,7 +69,7 @@ const ProductPage = () => {
                     {/* Три связанных продукта */}
                     <div className="product__related-cards">
                         <Text view="p-32" className="product__title" weight="bold">
-                            Related Products
+                            Related Items
                         </Text>
                         <div className="related-products _cards">
                             {relatedProducts.map((relatedProduct : ProductI) => (
@@ -77,6 +82,7 @@ const ProductPage = () => {
                                     contentSlot={`$${relatedProduct.price}`}
                                     actionSlot={<Button>Add to Cart</Button>}
                                     className="related-product-card"
+                                    onClick={() => handleCardClick(relatedProduct, products, navigate)} 
                                 />
                             ))}
                         </div>
