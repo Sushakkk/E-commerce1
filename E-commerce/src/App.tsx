@@ -6,7 +6,9 @@ import ProductPage from './pages/ProductPage/ProductPage';
 import Header from './components/Header/Header';
 import './styles/null.scss'
 import './styles/styles.css'
-import './styles/variables.css'
+// import './styles/variables.css
+
+// import './styles/var.scss'
 
 
 

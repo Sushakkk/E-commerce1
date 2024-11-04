@@ -1,4 +1,4 @@
-@import '../../styles/var';
+@import '../../styles/variables';
 
 .page__product {
   padding-top: 60px;
@@ -25,7 +25,7 @@
       align-items: center;
       justify-content: space-between;
       width: 129px;
-      height: 48px;
+      height: $space-xxl;
       text-align: start;
     }
 

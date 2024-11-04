@@ -1,0 +1,77 @@
+@import '../../styles/variables';
+
+.text {
+    color: $text-color;
+    font-family: $font-family;
+    text-align: left;
+    font-weight: 400;
+
+    // Ограничение по строкам
+    &.max-lines {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+
+.text-title {
+    font-family: $font-family;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 48px;
+}
+
+.text-button {
+    font-family: $font-family;
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.text-p-20 {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.text-p-32 {
+    font-size: 32px;
+    line-height: 48px;
+}
+
+.text-p-18 {
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.text-p-16 {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.text-p-14 {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.text-weight-normal {
+    font-weight: normal;
+}
+
+.text-weight-medium {
+    font-weight: 500;
+}
+
+.text-weight-bold {
+    font-weight: bold;
+}
+
+.text-color-primary {
+    color: $primary;
+}
+
+.text-color-secondary {
+    color:$secondary;
+}
+
+.text-color-accent {
+    color: $accent;
+}

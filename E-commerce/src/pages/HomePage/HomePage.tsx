@@ -9,6 +9,7 @@ import Card from 'components/Card';
 import PaginationIcon from 'components/PaginationIcon/PaginationIcon';
 import { useNavigate } from 'react-router-dom';
 import { handleCardClick } from 'utils/navigationUtils';
+import styles from './HomePge.module.scss'; 
 
 export interface ProductI {
   id: number;

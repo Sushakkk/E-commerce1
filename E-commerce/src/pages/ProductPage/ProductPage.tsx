@@ -5,7 +5,8 @@ import PaginationIcon from 'components/PaginationIcon/PaginationIcon';
 import Text from 'components/Text/Text';
 import Card from 'components/Card';
 import '../HomePage/HomePage.css';
-import './ProductPage.scss';
+// import styles from './ProductPage.module.scss'; 
+import './ProductPage.css'
 import { ProductI } from 'pages/HomePage/HomePage';
 import Button from 'components/Button';
 import { handleCardClick } from 'utils/navigationUtils';
