@@ -2,16 +2,20 @@ import React from 'react';
 
 interface PaginationIconProps {
     direction?: 'left' | 'right'; // Определяем возможные параметры
-    color?: 'primary' | 'secondary';
+    color?: 'primary' | 'secondary' |'base';
+    strokeWidth?: string
+
+
 }
 
-const PaginationIcon: React.FC<PaginationIconProps> = ({ direction = 'left', color = 'primary' }) => {
+const PaginationIcon: React.FC<PaginationIconProps> = ({ direction = 'left', color = 'primary' , strokeWidth='1.5'}) => {
     const rotation = direction === 'right' ? 180 : 0; // Устанавливаем угол поворота в зависимости от направления
 
     // Определяем цвета с использованием переменных CSS
     const colors = {
         primary: 'var(--primary)',
         secondary: 'var(--secondary)',
+        base: 'var(--base)'
     };
 
     return (
@@ -26,7 +30,7 @@ const PaginationIcon: React.FC<PaginationIconProps> = ({ direction = 'left', col
             <path
                 d="M23.12 31.5599L14.4267 22.8666C13.4 21.8399 13.4 20.1599 14.4267 19.1333L23.12 10.4399"
                 stroke={colors[color]} // Устанавливаем цвет из объекта colors
-                strokeWidth="1.5"
+                strokeWidth={strokeWidth}
                 strokeMiterlimit="10"
                 strokeLinecap="round"
                 strokeLinejoin="round"
