@@ -39,7 +39,7 @@
         padding: 0px $space-xs;
         gap: $space-xl;
         flex-grow: 1;
-        opacity: 0;
+
     }
     
     &__body {
@@ -56,7 +56,6 @@
         width: 336px;
         gap: $space-xxs;
         margin-top: auto;
-        opacity: 0;
         align-items: center;
     }
     

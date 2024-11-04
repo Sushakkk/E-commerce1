@@ -1,21 +1,21 @@
-import * as React from 'react';
+import React from 'react';
 import styles from './Text.module.scss';
 
 export type TextProps = {
-    /** Дополнительный класс */
-    className?: string;
-    /** Стиль отображения */
-    view?: 'title' | 'button' | 'p-20' | 'p-18' | 'p-16' | 'p-14' | 'p-32';
-    /** Html-тег */
-    tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'p' | 'span';
-    /** Начертание шрифта */
-    weight?: 'normal' | 'medium' | 'bold' | '700';
-    /** Контент */
-    children: React.ReactNode;
-    /** Цвет */
-    color?: 'primary' | 'secondary' | 'accent';
-    /** Максимальное кол-во строк */
-    maxLines?: number;
+  /** Дополнительный класс */
+  className?: string;
+  /** Стиль отображения */
+  view?: 'title' | 'button' | 'p-20' | 'p-18' | 'p-16' | 'p-14' | 'p-32';
+  /** Html-тег */
+  tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'p' | 'span';
+  /** Начертание шрифта */
+  weight?: 'normal' | 'medium' | 'bold' | '700' | '600';
+  /** Контент */
+  children: React.ReactNode;
+  /** Цвет */
+  color?: 'primary' | 'secondary' | 'accent';
+  /** Максимальное кол-во строк */
+  maxLines?: number;
 };
 
 const Text: React.FC<TextProps> = ({
@@ -44,11 +44,7 @@ const Text: React.FC<TextProps> = ({
   const style = maxLines ? { WebkitLineClamp: maxLines } : undefined;
 
   return (
-    <Component
-      data-testid="text"
-      className={`${classes} ${maxLines ? styles['max-lines'] : ''}`}
-      style={style}
-    >
+    <Component data-testid="text" className={classes} style={style}>
       {children}
     </Component>
   );

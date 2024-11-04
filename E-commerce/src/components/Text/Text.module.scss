@@ -1,77 +1,80 @@
+
 @import '../../styles/variables';
 
 .text {
-    color: $text-color;
-    font-family: $font-family;
-    text-align: left;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
-
-    // Ограничение по строкам
-    &.max-lines {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+  
+    &-title {
+      font-family: 'Roboto', sans-serif;
+      font-size: 44px;
+      font-weight: 700;
+      line-height: 48px;
     }
-}
-
-.text-title {
-    font-family: $font-family;
-    font-size: 44px;
-    font-weight: 700;
-    line-height: 48px;
-}
-
-.text-button {
-    font-family: $font-family;
-    font-size: 18px;
-    line-height: 18px;
-}
-
-.text-p-20 {
-    font-size: 20px;
-    line-height: 24px;
-}
-
-.text-p-32 {
-    font-size: 32px;
-    line-height: 48px;
-}
-
-.text-p-18 {
-    font-size: 18px;
-    line-height: 22px;
-}
-
-.text-p-16 {
-    font-size: 16px;
-    line-height: 20px;
-}
-
-.text-p-14 {
-    font-size: 14px;
-    line-height: 18px;
-}
-
-.text-weight-normal {
-    font-weight: normal;
-}
-
-.text-weight-medium {
-    font-weight: 500;
-}
-
-.text-weight-bold {
-    font-weight: bold;
-}
-
-.text-color-primary {
-    color: $primary;
-}
-
-.text-color-secondary {
-    color:$secondary;
-}
-
-.text-color-accent {
-    color: $accent;
-}
+  
+    &-button {
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+      line-height: 18px;
+    }
+  
+    &-p-20 {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  
+    &-p-32 {
+      font-size: 32px;
+      line-height: 48px;
+    }
+  
+    &-p-18 {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  
+    &-p-16 {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  
+    &-p-14 {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  
+    &-weight-normal {
+      font-weight: normal;
+    }
+    &-weight-600 {
+      font-weight: 600;
+    }
+  
+    &-weight-medium {
+      font-weight: 500;
+    }
+  
+    &-weight-bold {
+      font-weight: bold;
+    }
+  
+    &-color-primary {
+      color: $primary;
+    }
+  
+    &-color-secondary {
+      color: $secondary;
+    }
+  
+    &-color-accent {
+      color: $accent;
+    }
+  
+    // Ограничение по строкам
+    p {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+  
