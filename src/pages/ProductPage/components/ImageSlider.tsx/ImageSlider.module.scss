@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@import 'styles/variables.scss';
 
 
 .slider{
@@ -39,6 +39,8 @@
   }
   
   &__image {
+    width: 50%;
+    max-width: 400px;
     flex: 0 0 auto;
     min-width: 600px;
   }

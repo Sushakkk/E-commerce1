@@ -1,0 +1,25 @@
+@import 'styles/variables';
+@import 'styles/mixin';
+
+
+
+
+.products{
+    
+    &__cards {
+        padding-bottom: 30px;
+        @include cards-layout;
+    }
+    
+    
+    &__column {
+        display: flex;
+        justify-content: center;
+    }
+    
+    
+}
+
+
+
+

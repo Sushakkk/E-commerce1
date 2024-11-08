@@ -26,7 +26,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                     ${price}
                 </Text>
                 <div className={styles.product__buttons}>
-                    <Button width="135px" className={styles["buy-now-button"]}>Buy Now</Button>
+                    <Button className={styles["buy-now-button"]}>Buy Now</Button>
                     <Button className={styles["add-to-cart-button"]}>Add to Cart</Button>
                 </div>
             </div>

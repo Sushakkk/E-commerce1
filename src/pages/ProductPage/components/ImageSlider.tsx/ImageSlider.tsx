@@ -40,7 +40,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ product }) => {
         src={product.images[currentImageIndex]}
         alt={product.title}
         className={styles.slider__image}
-        style={{ width: '50%', maxWidth: '400px' }}
+
       />
 
       <button

@@ -12,11 +12,13 @@ import { handleCardClick } from 'utils/navigationUtils';
 import styles from './HomePage.module.scss';
 import '../../styles/styles.scss'
 import { ProductI } from 'modules/types';
+import Pagination from './components/Pagination/Pagination';
+import ProductList from './components/ProductList/ProductList';
+import Filters from './components/Filters/Filters';
 
 
 
 const HomePage: React.FC = () => {
-  const navigate = useNavigate();
   const [products, setProducts] = useState<ProductI[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [searchValue, setSearchValue] = useState<string>('');
@@ -51,21 +53,7 @@ const HomePage: React.FC = () => {
     setCurrentPage(page);
   };
 
-  const getPaginationRange = () => {
-    const range: (number | string)[] = [];
-    if (totalPages <= 5) {
-      for (let i = 1; i <= totalPages; i++) range.push(i);
-    } else {
-      if (currentPage <= 3) {
-        range.push(1, 2, 3, '...', totalPages);
-      } else if (currentPage < totalPages - 2) {
-        range.push(1, '...', currentPage, '...', totalPages);
-      } else {
-        range.push(1, '...', totalPages - 2, totalPages - 1, totalPages);
-      }
-    }
-    return range;
-  };
+  
 
   if (loading) return (
     <main className='page'>
@@ -90,65 +78,20 @@ const HomePage: React.FC = () => {
               </Text>
             </div>
           </div>
-          <div className={styles['products__controls']}>
-            <div className={styles['products__search']}>
-              <div className={styles['products__search-column--left']}>
-                <Input value={searchValue} onChange={setSearchValue} placeholder="Search product" />
-              </div>
-              <Button  width='137px' className={styles['products__search-column--right']}>Find now</Button>
-            </div>
-            <div className={styles['products__filter']}>
-              <MultiDropdown
-                options={[{ key: '1', value: 'Furniture' }, { key: '2', value: 'Electronics' }]}
-                value={[]}
-                onChange={() => {}}
-                getTitle={() => 'Filter'}
-              />
-            </div>
-          </div>
+          <Filters searchValue={searchValue} setSearchValue={setSearchValue} />
           <div className={styles['products__body']}>
             <div className={styles['products__subtitle']}>
               <Text view="p-32" className="page-title" weight="bold">Total Products</Text>
               <Text view="p-20" color="accent" weight="bold">{totalProducts}</Text>
             </div>
-            <section className={styles['products__cards']}>
-              {products.map((product) => (
-                <div className={styles['products__column']} key={product.id}>
-                  <Card
-                    image={product.images[0]}
-                    title={product.title}
-                    subtitle={product.description}
-                    captionSlot={product.category.name}
-                    contentSlot={`$${product.price}`}
-                    actionSlot={<Button>Add to Cart</Button>}
-                    className={styles['products__card']}
-                    onClick={() => handleCardClick(product, products, navigate)}
-                  />
-                </div>
-              ))}
-            </section>
+             <ProductList products={products} />
           </div>
-          <div className={styles['products__pagination']}>
-            <div onClick={() => handlePageChange(currentPage > 1 ? currentPage - 1 : 1)}>
-              <PaginationIcon color={currentPage > 1 ? 'primary' : 'secondary'} />
-            </div>
-            <div className={styles['products__pagination-buttons']}>
-              {getPaginationRange().map((page, index) => (
-                <Button
-                  key={index}
-                  width={38}
-                  height={42}
-                  className={`${styles['pagination-button']} ${page === currentPage ? styles['active-page'] : ''}`}
-                  onClick={() => typeof page === 'number' && handlePageChange(page)}
-                >
-                  {page}
-                </Button>
-              ))}
-            </div>
-            <div onClick={() => handlePageChange(currentPage < totalPages ? currentPage + 1 : totalPages)}>
-              <PaginationIcon direction="right" color={currentPage + 1 <= totalPages ? 'primary' : 'secondary'} />
-            </div>
-          </div>
+
+          <Pagination 
+            totalPages={totalPages}
+            currentPage={currentPage}
+            onPageChange={handlePageChange}
+          />
         </div>
       </div>
     </main>
