@@ -2,13 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Loader from 'components/Loader';
 import Text from 'components/Text/Text';
-import Input from 'components/Input';
-import Button from 'components/Button';
-import MultiDropdown from 'components/MultiDropdown';
-import Card from 'components/Card';
-import PaginationIcon from 'components/PaginationIcon/PaginationIcon';
-import { useNavigate } from 'react-router-dom';
-import { handleCardClick } from 'utils/navigationUtils';
 import styles from './HomePage.module.scss';
 import '../../styles/styles.scss'
 import { ProductI } from 'modules/types';
