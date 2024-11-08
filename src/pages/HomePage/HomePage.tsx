@@ -11,15 +11,9 @@ import { useNavigate } from 'react-router-dom';
 import { handleCardClick } from 'utils/navigationUtils';
 import styles from './HomePage.module.scss';
 import '../../styles/styles.scss'
+import { ProductI } from 'modules/types';
 
-export interface ProductI {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  images: string[];
-  category: { name: string };
-}
+
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
@@ -42,7 +36,7 @@ const HomePage: React.FC = () => {
 
       const totalResponse = await axios.get('https://api.escuelajs.co/api/v1/products', { params: { limit: 0 } });
       setTotalProducts(totalResponse.data.length);
-    } catch (error) {
+    } catch{
       setError('Не удалось загрузить данные');
     } finally {
       setLoading(false);
@@ -75,7 +69,7 @@ const HomePage: React.FC = () => {
 
   if (loading) return (
     <main className='page'>
-      <div className='page__loader _container'>
+      <div className='page__loader'>
         <Loader />
       </div>
       </main>
@@ -84,7 +78,7 @@ const HomePage: React.FC = () => {
 
   return (
     <main id="main" className='page'>
-      <div className={`${styles['page__main-block']} _container`}>
+      <div className={styles['page__main-block']}>
         <div className={styles['products__content']}>
           <div className={styles['products__header']}>
             <div className={styles['products__title']}>
@@ -117,7 +111,7 @@ const HomePage: React.FC = () => {
               <Text view="p-32" className="page-title" weight="bold">Total Products</Text>
               <Text view="p-20" color="accent" weight="bold">{totalProducts}</Text>
             </div>
-            <section className={`${styles['products__cards']} _cards`}>
+            <section className={styles['products__cards']}>
               {products.map((product) => (
                 <div className={styles['products__column']} key={product.id}>
                   <Card

@@ -15,7 +15,7 @@ const Header: React.FC = () => {
 
   return (
     <header className={styles.header}>
-      <div className={`${styles.header__container} _container`}>
+      <div className={styles.header__container}>
         <div className={styles.header__logo}>
           <Link to="/"> 
             <Logo />
